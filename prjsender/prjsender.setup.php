@@ -5,7 +5,7 @@ Code=prjsender
 Name=Prjsender
 Category=
 Description=Projects sender
-Version=1.0.0
+Version=1.0.1
 Date=2014-01-20
 Author=CMSWorks Team
 Copyright=CMSWorks Team 2010-2014
@@ -19,7 +19,7 @@ Requires_plugins=
 [END_COT_EXT]
 
 [BEGIN_COT_EXT_CONFIG]
-
+limittosend=01:string::10:Количество уведомлений за один цикл
 [END_COT_EXT_CONFIG]
 ==================== */
 
