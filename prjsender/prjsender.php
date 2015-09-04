@@ -18,11 +18,27 @@ foreach (cot_getextplugins('prjsender.first') as $pl)
 }
 /* ===== */
 
+$allcats = cot_structure_children('projects', '', true);
+$prjcats = array();
+$prjcats_titles = array();
+foreach($allcats as $cat)
+{
+	$prjcats[] = $cat;
+	$prjcats_titles[] = $structure['projects'][$cat]['title'];
+}
+
 if($a == 'update')
 {
 	$rcats = cot_import('cats', 'P', 'ARR');
-	$rcats = (!empty($rcats)) ? implode(',', $rcats) : '';
-	
+
+	if(count($rcats) == count($prjcats)) {
+		$rcats = '';
+	}elseif(!empty($rcats)){
+		$rcats = implode(',', $rcats);
+	}else{
+		$rcats = '-1';
+	}
+
 	$db->update($db_users, array('user_prjsendercats' => $rcats, 'user_prjsenderdate' => $sys['now']), "user_id=".$usr['id']);
 	
 	cot_redirect(cot_url('prjsender', '', '', true));
@@ -41,19 +57,15 @@ foreach (cot_getextplugins('prjsender.main') as $pl)
 
 $t = new XTemplate($mskin);
 
-$allcats = cot_structure_children('projects', '', true);
-$prjcats = array();
-$prjcats_titles = array();
-foreach($allcats as $cat)
-{
-	$prjcats[] = $cat;
-	$prjcats_titles[] = $structure['projects'][$cat]['title'];
-}
-
-if(!empty($usr['profile']['user_prjsendercats']))
+if(!empty($usr['profile']['user_prjsendercats']) && $usr['profile']['user_prjsendercats'] != '-1')
 {
 	$rcats = explode(',', $usr['profile']['user_prjsendercats']);
+}elseif($usr['profile']['user_prjsendercats'] == '-1'){
+	$rcats = array();
+}else{
+	$rcats = $prjcats;
 }
+
 
 $t->assign(array(
 	'PRJSENDER_FORM_ACTION' => cot_url('prjsender', 'a=update'),
