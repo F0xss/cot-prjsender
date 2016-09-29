@@ -24,4 +24,4 @@ wget -q -O - http://вашсайт/index.php?r=prjsender > /dev/null 2>&1
  
 В шапке сайта необходимо добавить ссылку на страницу подписки:
 
-/<a href="{PHP|cot_url('prjsender')}">{PHP.L.prjsender}/</a>
+\<a href="{PHP|cot_url('prjsender')}">{PHP.L.prjsender}\</a>
