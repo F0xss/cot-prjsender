@@ -6,7 +6,7 @@
 <p>{PHP.L.prjsender_desc}</p>
 
 <form action="{PRJSENDER_FORM_ACTION}" method="post">
-	{PRJSENDER_FORM_CATS}
+	<span class="prjsend">{PRJSENDER_FORM_CATS}</span>
 	<br/>
 	<button class="btn btn-success">{PHP.L.Submit}</button>
 </form>
