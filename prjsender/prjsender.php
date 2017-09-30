@@ -69,7 +69,7 @@ if(!empty($usr['profile']['user_prjsendercats']) && $usr['profile']['user_prjsen
 
 $t->assign(array(
 	'PRJSENDER_FORM_ACTION' => cot_url('prjsender', 'a=update'),
-	'PRJSENDER_FORM_CATS' => cot_checklistbox($rcats, 'cats', $prjcats, $prjcats_titles, '', '', false),
+	'PRJSENDER_FORM_CATS' => cot_checklistbox($rcats, 'cats', $prjcats, $prjcats_titles, 'class="prjsendlbl"', '</span><span class="prjsend">', false),
 ));
 
 /* === Hook === */
