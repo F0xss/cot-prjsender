@@ -1,4 +1,5 @@
 <!-- BEGIN: MAIN -->
+<style>span.prjsend {width: 33%; display: -webkit-inline-box;}</style>
 
 <div class="breadcrumb">{PHP.L.prjsender}</div>
 <h1>{PHP.L.prjsender_title}</h1>
